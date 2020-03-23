@@ -70,6 +70,7 @@
 - Binding packages (aliasing) so you can bind params
 - OpenAPI
 - YAML - deploy
+- Binding your own "secure key" token without OpenAPI spec.
 
 
 
