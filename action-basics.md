@@ -162,7 +162,7 @@ If you don't need the action result right away, you can omit the `--blocking` fl
   }
   ```
 
-## Retrieve activation list
+5. Retrieve activation list
 
 ```bash
 ic fn activation list
@@ -179,20 +179,16 @@ y:m:d:hm:s 6bf1f670...    nodejs:10 warm  2ms      success <NAMESPACE>/hello:0.0
 - Actions can be invoked directly using CLI
   - asynchronously: by default
   - synchronously: --block flag
-- System tracks each invokaction as an "Activation"
+- System tracks each action inocagtion with as an "Activation" (record)
+  - _Lots of information about execution time/params, etc._
 
 ---
 
-# Using Action Parameters
+# Passing Action Parameters
 
 Event parameters can be passed to the action when it is invoked. Let's look at a sample action which uses the parameters to calculate the return values.
 
-## Passing parameters to an action
-
-
-## Invoking action with parameters
-
-When invoking actions through the command-line, parameter values can be passed as through explicit command-line parameters `—param` flag, the shorter `-p` flag or using an input file containing raw JSON.
+## CLI --param flag
 
 1. Invoke the `hello` action using explicit command-line parameters using the `--param` flag.
 
@@ -216,6 +212,8 @@ When invoking actions through the command-line, parameter values can be passed a
 **Note** We used the `--result` option above. It implies a `blocking` invocation where the CLI waits for the activation to complete and then displays only the function's output as the `payload` value.
 {% endhint %}
 
+## CLI --param
+
 2. Create a file named `parameters.json` containing the following JSON.
 
     ```json
@@ -228,12 +226,12 @@ When invoking actions through the command-line, parameter values can be passed a
 3. Invoke the `hello` action using parameters from a JSON file.
 
     ```bash
-    ibmcloud fn action invoke --result hello --param-file parameters.json
+    ic fn action invoke --result hello --param-file parameters.json -p name Bilbo
     ```
 
     ```json
     {
-        "payload": "Hello, Frodo from the Shire"
+        "payload": "Hello, Bilbo from the Shire"
     }
     ```
 
@@ -250,7 +248,7 @@ Parameter values can be any valid JSON value, including nested objects. Let's up
     ```
 
     ```bash
-    ibmcloud fn action create hello-person hello-person.js
+    ic fn action create hello-person hello-person.js
     ```
 
     Now the action expects a single `person` parameter to have fields `name` and `place`.
@@ -258,7 +256,7 @@ Parameter values can be any valid JSON value, including nested objects. Let's up
 2. Invoke the action with a single `person` parameter that is valid JSON.
 
    ```bash
-   ibmcloud fn action invoke --result hello-person -p person '{"name": "Elrond", "place": "Rivendell"}'
+   ic fn action invoke --result hello-person -p person '{"name": "Elrond", "place": "Rivendell"}'
    ```
 
    The result is the same because the CLI automatically parses the `person` parameter value into the structured object that the action now expects:
