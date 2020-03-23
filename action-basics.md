@@ -34,7 +34,7 @@
 2. Create an action from the following JavaScript function. For this example, the action is called `hello`.
 
    ```bash
-   ic fn action create hello ~/hello.js
+   ic fn action create hello hello.js
    ```
 
 3. List the actions that you have created:

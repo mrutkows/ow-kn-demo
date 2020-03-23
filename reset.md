@@ -26,5 +26,8 @@
 ## Remove Actions
 
 ```bash
-ic fn action delete
+ic fn action delete hello
+```
+```
+ok: deleted action hello
 ```
