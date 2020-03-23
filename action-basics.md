@@ -55,7 +55,7 @@
 - **No special code** needed, just the language
   - **Convention**: "Main" entrypoint assumed_
 - **No build step**
-- NodeJS (latest) runtime inferred
+- **NodeJS inferred** (latest runtime version)
 - **Namespaced**: (default) installed into; allows underlying platform to apply **IAM access control** to
 - _**Note**: "update" action subcommand will update internal version of source code (allowing existing actions to complete with source code version in-flight)_
 
@@ -79,7 +79,7 @@ A blocking invocation request will _wait_ for the activation result to be availa
   ```
 
   ```bash
-  ok: invoked /_/hello with id 44794bd6aab74415b4e42a308d880e5b
+  ok: invoked /_/hello with id 4479...
   ```
 
   ```json
@@ -94,6 +94,8 @@ A blocking invocation request will _wait_ for the activation result to be availa
     },
     ...
   ```
+
+  #### Notes
 
   - The wait period is the lesser of 60 seconds or the action's configured [time limit](https://github.com/apache/incubator-openwhisk/blob/master/docs/reference.md#per-action-timeout-ms-default-60s).
 
@@ -165,7 +167,7 @@ If you don't need the action result right away, you can omit the `--blocking` fl
 5. Retrieve activation list
 
 ```bash
-ic fn activation list
+ic fn activation list --l 2
 ```
 
 ```bash
@@ -179,7 +181,7 @@ y:m:d:hm:s 6bf1f670...    nodejs:10 warm  2ms      success <NAMESPACE>/hello:0.0
 - Actions can be invoked directly using CLI
   - asynchronously: by default
   - synchronously: --block flag
-- System tracks each action inocagtion with as an "Activation" (record)
+- System tracks each action invocation with as an "Activation" (record)
   - _Lots of information about execution time/params, etc._
 
 ---

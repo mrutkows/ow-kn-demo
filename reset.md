@@ -28,6 +28,6 @@
 ```bash
 ic fn action delete hello
 ```
-```
-ok: deleted action hello
+```bash
+ic fn action delete hello-person
 ```
