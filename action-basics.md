@@ -24,25 +24,17 @@
 1. Create a JavaScript file with named 'hello.js' with these contents:
 
    ```javascript
-   function main() {
-       return {payload: 'Hello world'};
+   function main(params) {
+       return {payload:  'Hello, ' + params.name + ' from ' + params.place};
    }
    ```
 
-   The JavaScript file might contain additional functions. However, by convention, a function called `main` is the default entry point for the action.
-
-### Takeaways
-
-- No special code needed, just the language
+   - _The JavaScript file might contain additional functions. However, by convention, a function called `main` is the default entry point for the action._
 
 2. Create an action from the following JavaScript function. For this example, the action is called `hello`.
 
    ```bash
    ic fn action create hello ~/hello.js
-   ```
-
-   ```text
-   ok: created action hello
    ```
 
 3. List the actions that you have created:
@@ -57,6 +49,14 @@
    ```
 
    You can see the `hello` action you just created under your default NAMESPACE with implied access control provided by the platform.
+
+### Takeaways
+
+- No special code needed, just the language
+  - **Convention**: "Main" entrypoint assumed_
+- No build step
+- NodeJS (latest) runtime inferred
+- Namespaced: (default) installed into; allows underlying platform to apply IAM access control to
 
 ## Invoking Actions
 
@@ -79,19 +79,15 @@ The wait period is the lesser of 60 seconds or the action's configured [time lim
   ic fn action invoke --blocking hello
   ```
 
-  The command outputs the **Activation ID** (`44794bd6aab74415b4e42a308d880e5b`) which can always be used later to lookup the response:
-
   ```bash
   ok: invoked /_/hello with id 44794bd6aab74415b4e42a308d880e5b
   ```
-
-  and the complete **Activation record** in JSON format which contains all information about the activation including the function's complete `response`. The JavaScript function's output is the string `Hello world` which appears as the value of the `payload` key:
 
   ```json
   ...
   "response": {
         "result": {
-            "payload": "Hello world"
+            "payload": "Hello, undefined from undefined"
         },
         "size": 25,
         "status": "success",
@@ -99,6 +95,7 @@ The wait period is the lesser of 60 seconds or the action's configured [time lim
     },
     ...
   ```
+  The **Activation ID** (`44794bd6aab74415b4e42a308d880e5b`) which can always be used later to lookup the response:
 
 ### Non-blocking invocations
 
@@ -109,7 +106,7 @@ If you don't need the action result right away, you can omit the `--blocking` fl
 1. Invoke the `hello` Action using the command-line as a non-blocking activation.
 
    ```bash
-   ibmcloud fn action invoke hello
+   ic fn action invoke hello
    ```
 
    ```bash
@@ -119,41 +116,33 @@ If you don't need the action result right away, you can omit the `--blocking` fl
 2. Retrieve the activation result
 
    ```bash
-   ibmcloud fn activation result 6bf1f670ee614a7eb5af3c9fde81304
+   ic fn activation result 6bf1f670ee614a7eb5af3c9fde81304
    ```
 
    ```json
    {
-       "payload": "Hello world"
+       "payload": "Hello, undefined from undefined"
    }
    ```
 
-## Retrieve the last activation result
-
-To access the most recent activation result use the `--last` or `-l` flag.
-
-1. Run the following command to get your last activation result.
+3. Alternatively, retrieve the `--last` or `-l` activation result
 
   ```bash
-  ibmcloud fn activation result --last
+  ic fn activation result --last
   ```
 
   ```json
   {
-      "payload": "Hello world"
+      "payload": "Hello, undefined from undefined"
   }
   ```
-
-  {% hint style="warning" %}
-  _Do not use an activation ID with the flag `--last`._
-  {% endhint %}
 
 ## Retrieve the full activation record
 
   1. To get the complete activation record use the `activation get` command:
 
   ```bash
-  ibmcloud fn activation get 6bf1f670ee614a7eb5af3c9fde813043
+  ic fn activation get 6bf1f670ee614a7eb5af3c9fde813043
   ```
 
   ```json
@@ -172,16 +161,10 @@ To access the most recent activation result use the `--last` or `-l` flag.
   }
   ```
 
-  {% hint style="info" %}
-  **Tip** The `--last` flag can also be used to get the last activation record (`activation get --last`), from the activation logs.
-  {% endhint %}
-
 ## Retrieve activation list
 
-1. If you forget to record the activation ID, you can get a list of activations ordered from the most recent to the oldest. Run the following command to get a list of your activations:
-
 ```bash
-ibmcloud fn activation list
+ic fn activation list
 ```
 
 ```bash
@@ -190,9 +173,9 @@ y:m:d:hm:s 44794bd6...    nodejs:10 cold  34s      success <NAMESPACE>/hello:0.0
 y:m:d:hm:s 6bf1f670...    nodejs:10 warm  2ms      success <NAMESPACE>/hello:0.0.1
 ```
 
-{% hint style="info" %}
-**Note** The **`Entity`** column indicates which action was invoked along with the function's internal version. Every time you update an action's code, the platform will increment the internal version number.
-{% endhint %}
+## Takeaways
+
+- System tracks each invokaction as an "Activation"
 
 # Using Action Parameters
 
@@ -213,7 +196,7 @@ Event parameters can be passed to the action when it is invoked. Let's look at a
 2. Update the `hello` action with the new source code.
 
    ```bash
-   ibmcloud fn action update hello hello.js
+   ic fn action update hello hello.js
    ```
 
 ## Invoking action with parameters
@@ -223,13 +206,13 @@ When invoking actions through the command-line, parameter values can be passed a
 1. Invoke the `hello` action using explicit command-line parameters using the `--param` flag.
 
     ```bash
-    ibmcloud fn action invoke --result hello --param name Elrond --param place Rivendell
+    ic fn action invoke --result hello --param name Elrond --param place Rivendell
     ```
 
     or using the `-p` short form:
 
     ```bash
-    ibmcloud fn action invoke --result hello -p name Elrond -p place Rivendell
+    ic fn action invoke --result hello -p name Elrond -p place Rivendell
     ```
 
     ```json
@@ -311,8 +294,6 @@ Update the action by using the `--param` option to bind default parameter values
 ic fn action update hello --param place Rivendell
 ```
 
-### From parameter file
-
 Passing parameters from a file requires the creation of a file containing the desired content in JSON format. The filename must then be passed to the `--param-file` flag:
 
 Example parameter file called parameters.json:
@@ -322,6 +303,8 @@ Example parameter file called parameters.json:
     "place": "Rivendell"
 }
 ```
+
+### From parameter file
 
 ```bash
 ibmcloud fn action update hello --param-file parameters.json
