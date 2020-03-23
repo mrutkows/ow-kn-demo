@@ -348,10 +348,6 @@ Let's look an example of creating a "proxy" action which invokes another action 
     ic fn action create proxy proxy.js
     ```
 
-{% hint style="info" %}
-**Note** The function uses the [NPM Apache OpenWhisk](https://www.npmjs.com/package/openwhisk) JavaScript library which is pre-installed in the IBM Cloud Functions runtime (so you do not need to package it). _Its source code can be found here:_ [https://github.com/apache/openwhisk-client-js/](https://github.com/apache/openwhisk-client-js/).
-{% endhint %}
-
 2. Invoke the proxy with an incorrect password.
 
     ```bash
@@ -396,6 +392,7 @@ Let's look an example of creating a "proxy" action which invokes another action 
 
 - Platform functions simplified:
   - Simple import of NPM package (NodeJS developer familiar)
+    - [NPM Apache OpenWhisk](https://www.npmjs.com/package/openwhisk) JavaScript library
 
 {% hint style="tip" %}
 **Note** On the invoke call above, we used the short form for the `--last` flag which is `-l` with a parameter to only `list` the last `2` activations.
