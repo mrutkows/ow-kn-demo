@@ -63,14 +63,32 @@
         - easily interfaced with host IAM systems
    - Massively parallel (time/cost of additive cold start compute times considerations)
 
-## Other features not covered:
+## Features covered in this material:
 
 - Using Functions (and Alarms) to create Event providers / Feeds
-- Compositions
+- Observer pattern
+  - N Triggers -> 1 Action
+  - 1 Trigger -> N Actions
 - Binding packages (aliasing) so you can bind params
 - OpenAPI
+  - Rate Limiting
 - YAML - deploy
 - Binding your own "secure key" token without OpenAPI spec.
+- Compositions
+  - Composer / Conductor (Lionel developer)
+- Logging / Metrics
+  - built-in via File Descriptors in Proxy
+- Debugging (server side, client side)
+  - Proxy
+- Docker actions (any binary)
+- Tekton build for OW runtimes
+- "Kind' Routing
+  - OW using Knative,
+  - V8 Isolages, Firecracker (concurrency), 10K NodeJS invocations in one Container
+- Scheduling (pluggable),
+  - for general case (FaaS)
+  - Custom schedulers (for dedicated use cases)
+  - Heterogeneous clusters (Compute CPU/Mem)
 
 
 
