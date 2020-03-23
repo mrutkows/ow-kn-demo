@@ -194,6 +194,238 @@ y:m:d:hm:s 6bf1f670...    nodejs:10 warm  2ms      success <NAMESPACE>/hello:0.0
 **Note** The **`Entity`** column indicates which action was invoked along with the function's internal version. Every time you update an action's code, the platform will increment the internal version number.
 {% endhint %}
 
-{% hint style="success" %}
-🎉 **Great work!** You have now learned how to create, deploy and invoke your own serverless functions on IBM Cloud Functions. What about passing data into actions? Let's find out more...
+# Using Action Parameters
+
+Event parameters can be passed to the action when it is invoked. Let's look at a sample action which uses the parameters to calculate the return values.
+
+## Passing parameters to an action
+
+1. Update the file `hello.js` with the following following content:
+
+   ```javascript
+   function main(params) {
+       return {payload:  'Hello, ' + params.name + ' from ' + params.place};
+   }
+   ```
+
+   The input parameters are passed as a JSON object parameter to the `main` function. Notice how the `name` and `place` parameters are retrieved from the `params` object in this example.
+
+2. Update the `hello` action with the new source code.
+
+   ```bash
+   ibmcloud fn action update hello hello.js
+   ```
+
+## Invoking action with parameters
+
+When invoking actions through the command-line, parameter values can be passed as through explicit command-line parameters `—param` flag, the shorter `-p` flag or using an input file containing raw JSON.
+
+1. Invoke the `hello` action using explicit command-line parameters using the `--param` flag.
+
+    ```bash
+    ibmcloud fn action invoke --result hello --param name Elrond --param place Rivendell
+    ```
+
+    or using the `-p` short form:
+
+    ```bash
+    ibmcloud fn action invoke --result hello -p name Elrond -p place Rivendell
+    ```
+
+    ```json
+    {
+        "payload": "Hello, Elrond from Rivendell"
+    }
+    ```
+
+{% hint style="info" %}
+**Note** We used the `--result` option above. It implies a `blocking` invocation where the CLI waits for the activation to complete and then displays only the function's output as the `payload` value.
 {% endhint %}
+
+2. Create a file named `parameters.json` containing the following JSON.
+
+    ```json
+    {
+        "name": "Frodo",
+        "place": "the Shire"
+    }
+    ```
+
+3. Invoke the `hello` action using parameters from a JSON file.
+
+    ```bash
+    ibmcloud fn action invoke --result hello --param-file parameters.json
+    ```
+
+    ```json
+    {
+        "payload": "Hello, Frodo from the Shire"
+    }
+    ```
+
+### Nested parameters
+
+Parameter values can be any valid JSON value, including nested objects. Let's update our action to use child properties of the event parameters.
+
+1. Create the `hello-person` action with the following source code.
+
+    ```javascript
+    function main(params) {
+        return {payload:  'Hello, ' + params.person.name + ' from ' + params.person.place};
+    }
+    ```
+
+    ```bash
+    ibmcloud fn action create hello-person hello-person.js
+    ```
+
+    Now the action expects a single `person` parameter to have fields `name` and `place`.
+
+2. Invoke the action with a single `person` parameter that is valid JSON.
+
+   ```bash
+   ibmcloud fn action invoke --result hello-person -p person '{"name": "Elrond", "place": "Rivendell"}'
+   ```
+
+   The result is the same because the CLI automatically parses the `person` parameter value into the structured object that the action now expects:
+
+   ```json
+   {
+       "payload": "Hello, Elrond from Rivendell"
+   }
+   ```
+
+## Setting default parameters
+
+Actions can be invoked with multiple named parameters. Recall that the `hello` action from the previous example expects two parameters: the _name_ of a person, and the _place_ where they're from.
+
+Rather than pass all the parameters to an action every time, you can bind default parameters. Default parameters are stored in the platform and automatically passed in during each invocation. If the invocation includes the same event parameter, this will overwrite the default parameter value.
+
+Let's use the `hello` action from our previous example and bind a default value for the `place` parameter.
+
+### From command line
+
+Update the action by using the `--param` option to bind default parameter values.
+
+```bash
+ic fn action update hello --param place Rivendell
+```
+
+### From parameter file
+
+Passing parameters from a file requires the creation of a file containing the desired content in JSON format. The filename must then be passed to the `--param-file` flag:
+
+Example parameter file called parameters.json:
+
+```json
+{
+    "place": "Rivendell"
+}
+```
+
+```bash
+ibmcloud fn action update hello --param-file parameters.json
+```
+
+Invoke the action, passing only the `name` parameter this time.
+
+```bash
+ibmcloud fn action invoke --result hello --param name Elrond
+```
+
+```json
+{
+    "payload": "Hello, Elrond from Rivendell"
+}
+```
+
+Notice that you did not need to specify the place parameter when you invoked the action. Bound parameters can still be overwritten by specifying the parameter value at invocation time.
+
+Invoke the action, passing both `name` and `place` values. The latter overwrites the value that is bound to the action.
+
+```bash
+ibmcloud fn action invoke --result hello --param name Elrond --param place "the Lonely Mountain"
+```
+
+```json
+{
+    "payload": "Hello, Elrond from the Lonely Mountain"
+}
+```
+
+## Proxy example
+
+Let's look an example of creating a "proxy" action which invokes another action _(i.e, our `hello` action)_ if a "password" is present in the input parameters.
+
+1. Create the following new action named `proxy` from the following source files.
+
+    ```javascript
+    var openwhisk = require('openwhisk');
+
+    function main(params) {
+        if (params.password !== 'secret') {
+        throw new Error("Password incorrect!")
+        }
+
+        var ow = openwhisk();
+        return ow.actions.invoke({name: "hello", blocking: true, result: true, params: params})
+    }
+    ```
+
+    ```bash
+    ibmcloud fn action create proxy proxy.js
+    ```
+
+{% hint style="info" %}
+**Note** The function uses the [NPM Apache OpenWhisk](https://www.npmjs.com/package/openwhisk) JavaScript library which is pre-installed in the IBM Cloud Functions runtime (so you do not need to package it). _Its source code can be found here:_ [https://github.com/apache/openwhisk-client-js/](https://github.com/apache/openwhisk-client-js/).
+{% endhint %}
+
+2. Invoke the proxy with an incorrect password.
+
+    ```bash
+    ic fn action invoke proxy -p password wrong -r
+    ```
+
+    ```json
+    {
+        "error": "An error has occurred: Error: Password incorrect!"
+    }
+    ```
+
+{% hint style="tip" %}
+**Note** On the invoke call above, we used the short form for the `--result` flag which is `-r`.
+{% endhint %}
+
+3. Invoke the proxy with the correct password.
+
+    ```bash
+    ic fn action invoke proxy -p password secret -p name Bernie -p place Vermont -r
+    ```
+
+    ```json
+    {
+        "greeting": "Hello Bernie from Vermont"
+    }
+    ```
+
+4. Review the activations list to show both actions were invoked.
+
+   ```bash
+   ic fn activation list -l 2
+   ```
+
+    ```text
+    Activation ID                    Kind      Start Duration   Status  Entity
+    8387302c81dc4d2d87302c81dc4d2dc6 nodejs:10 cold  35ms       success hello:0.0.4
+    e0c603c242c646978603c242c6c6977f nodejs:10 cold  438ms      success proxy:0.0.1
+    ```
+
+### Takeaways
+
+- Platform functions simplified:
+  - Simple import of NPM package (NodeJS developer familiar)
+
+{% hint style="tip" %}
+**Note** On the invoke call above, we used the short form for the `--last` flag which is `-l` with a parameter to only `list` the last `2` activations.
+{% endhint %}
+
