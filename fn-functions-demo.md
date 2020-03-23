@@ -35,6 +35,10 @@ Review the following steps and examples to create your first JavaScript action.
 
    The JavaScript file might contain additional functions. However, by convention, a function called `main` is the default entry point for the action.
 
+   ### Takeaways
+
+   - No special code needed, just the language
+
 2. Create an action from the following JavaScript function. For this example, the action is called `hello`.
 
    ```bash
@@ -56,7 +60,7 @@ Review the following steps and examples to create your first JavaScript action.
    <NAMESPACE>/hello       private    nodejs10
    ```
 
-   You can see the `hello` action you just created under your default NAMESPACE.
+   You can see the `hello` action you just created under your default NAMESPACE with implied access control provided by the platform.
 
 ## Invoking Actions
 
@@ -71,7 +75,7 @@ Regardless, invocations always provide an **Activation ID** which can be used la
 
 A blocking invocation request will _wait_ for the activation result to be available.
 
-The wait period is the lesser of 60 seconds or the action's configured [time limit](https://github.com/apache/incubator-openwhisk/blob/master/docs/reference.md#per-action-timeout-ms-default-60s). The result of the activation is returned if it is available within the wait period. Otherwise, the activation continues processing in the system and an activation ID is returned so that one may check for the result later, as with non-blocking requests \(see [here](https://github.com/apache/incubator-openwhisk/blob/master/docs/actions.md#watching-action-output) for tips on monitoring activations\).
+The wait period is the lesser of 60 seconds or the action's configured [time limit](https://github.com/apache/incubator-openwhisk/blob/master/docs/reference.md#per-action-timeout-ms-default-60s).
 
 1. Invoke the `hello` action using the command-line as a blocking activation.
 
