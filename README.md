@@ -16,7 +16,7 @@
 
 ### Developer-centric
 
-- Everything we do is **Developer simplicity**
+- Everything we do is for **Developer simplicity**
 
   - Developer only codes functions in their chosen language
      - _No directives | pragmas | annotations_
@@ -36,8 +36,11 @@
       - moving "up the stack" for the developer... no more Pflask... etc.
       - Cold start reduction is paramount!
    - Event format agnostic
-      - Cannot force everyone to single event format; either impractical
-        - performance... functions coupled with event formats (e.g., from IoT devices or data sets), e.g., (NASA PIXL, raw NoSQL data, analytics models, genetic model data)
+      - Cannot force everyone to single event format; either impractical to change
+        - cannot suffer performance (transforms)...
+        - functions are often coupled with specific data (e.g., from IoT sensor events or data sets), e.g.,
+        NASA PIXL, raw NoSQL data, analytics models, genetic model data)
+            - [NASA Rover PIXL](https://mars.nasa.gov/mars2020/spacecraft/instruments/pixl/)
       - Simplified HTTP / Web accessible without APIs
         - _functions creating/modifying/serving web content-type data_
    - Edge accessible
