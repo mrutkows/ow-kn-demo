@@ -296,13 +296,13 @@ Example parameter file called parameters.json:
 ### From parameter file
 
 ```bash
-ibmcloud fn action update hello --param-file parameters.json
+ic fn action update hello --param-file parameters.json
 ```
 
 Invoke the action, passing only the `name` parameter this time.
 
 ```bash
-ibmcloud fn action invoke --result hello --param name Elrond
+ic fn action invoke --result hello --param name Elrond
 ```
 
 ```json
@@ -316,7 +316,7 @@ Notice that you did not need to specify the place parameter when you invoked the
 Invoke the action, passing both `name` and `place` values. The latter overwrites the value that is bound to the action.
 
 ```bash
-ibmcloud fn action invoke --result hello --param name Elrond --param place "the Lonely Mountain"
+ic fn action invoke --result hello --param name Elrond --param place "the Lonely Mountain"
 ```
 
 ```json
@@ -345,7 +345,7 @@ Let's look an example of creating a "proxy" action which invokes another action 
     ```
 
     ```bash
-    ibmcloud fn action create proxy proxy.js
+    ic fn action create proxy proxy.js
     ```
 
 {% hint style="info" %}
