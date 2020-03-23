@@ -27,27 +27,31 @@
      - Utilize normal language module/package imports
         - May provide platform callbacks/intrinsic functionality (as functions)
   - Developer has NO knowledge of
-     - OS
+     - Operating Syetem (OS)
      - Platform (implementation)
         - _Kube | knative | Pfirecracker, etc._
+     - Container (VM tech.)
      - (Micro)Service Framework
 
+### Observer Pattern: Event driven / Reactive
 
-### Reactive / Event driven (it's all about an eventing framework that scales as fast as possible)
+It's all about an eventing framework that scales as fast as possible!
 
-   - Observer pattern reflected
-   - Reactive (as expected by microservices assumed to migrate over)
+   - **Observer pattern** reflected in Programming Model
+      - Informs design of control and data plane (for FaaS platform)
+   - **Reactive**
+      - as expected by microservices; these developers will migrate to FaaS
       - moving "up the stack" for the developer... no more Pflask... etc.
       - Cold start reduction is paramount!
-   - Event format agnostic
+   - **Event format agnostic**
       - Cannot force everyone to single event format; either impractical to change
         - cannot suffer performance (transforms)...
         - functions are often coupled with specific data (e.g., from IoT sensor events or data sets), e.g.,
-        NASA PIXL, raw NoSQL data, analytics models, genetic model data)
-            - [NASA Rover PIXL](https://mars.nasa.gov/mars2020/spacecraft/instruments/pixl/)
-      - Simplified HTTP / Web accessible without APIs
-        - _functions creating/modifying/serving web content-type data_
-   - Edge accessible
+        **NASA PIXL**, raw NoSQL data, analytics models, genetic model data)
+            - **[NASA Rover PIXL](https://mars.nasa.gov/mars2020/spacecraft/instruments/pixl/)**
+   - **HTTP / Web accessible without APIs**
+        - _functions creating/modifying/serving http `content-type` web data_
+   - **Edge accessible**
       - IoT events (network response time sensitve)
 
 ## Driven by Serverless Use Cases
