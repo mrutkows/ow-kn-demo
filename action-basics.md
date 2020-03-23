@@ -52,15 +52,16 @@
 
 ### Takeaways
 
-- No special code needed, just the language
+- **No special code** needed, just the language
   - **Convention**: "Main" entrypoint assumed_
-- No build step
+- **No build step**
 - NodeJS (latest) runtime inferred
-- Namespaced: (default) installed into; allows underlying platform to apply IAM access control to
+- **Namespaced**: (default) installed into; allows underlying platform to apply **IAM access control** to
+- _**Note**: "update" action subcommand will update internal version of source code (allowing existing actions to complete with source code version in-flight)_
 
 ## Invoking Actions
 
-After you create your action, you can run it on IBM Cloud Functions with the `invoke` command using one of two modes:
+You may `invoke` your action in one of two modes:
 
 - **blocking** - which will _**wait**_ for the result \(i.e., request/response style\) by specifying the `blocking` flag on the command-line.
 - **non-blocking** - which will invoke the action immediately, but _**not wait**_ for a response.
@@ -70,8 +71,6 @@ Regardless, invocations always provide an **Activation ID** which can be used la
 ### Blocking Invocations
 
 A blocking invocation request will _wait_ for the activation result to be available.
-
-The wait period is the lesser of 60 seconds or the action's configured [time limit](https://github.com/apache/incubator-openwhisk/blob/master/docs/reference.md#per-action-timeout-ms-default-60s).
 
 1. Invoke the `hello` action using the command-line as a blocking activation.
 
@@ -89,13 +88,17 @@ The wait period is the lesser of 60 seconds or the action's configured [time lim
         "result": {
             "payload": "Hello, undefined from undefined"
         },
-        "size": 25,
+        "size": 45,
         "status": "success",
         "success": true
     },
     ...
   ```
-  The **Activation ID** (`44794bd6aab74415b4e42a308d880e5b`) which can always be used later to lookup the response:
+
+  - The wait period is the lesser of 60 seconds or the action's configured [time limit](https://github.com/apache/incubator-openwhisk/blob/master/docs/reference.md#per-action-timeout-ms-default-60s).
+
+  - The **Activation ID** can always be used later to lookup the response.
+
 
 ### Non-blocking invocations
 
@@ -116,7 +119,7 @@ If you don't need the action result right away, you can omit the `--blocking` fl
 2. Retrieve the activation result
 
    ```bash
-   ic fn activation result 6bf1f670ee614a7eb5af3c9fde81304
+   ic fn activation result 6bf1...
    ```
 
    ```json
@@ -137,16 +140,14 @@ If you don't need the action result right away, you can omit the `--blocking` fl
   }
   ```
 
-## Retrieve the full activation record
-
-  1. To get the complete activation record use the `activation get` command:
+4. Retrieve the full activation record
 
   ```bash
-  ic fn activation get 6bf1f670ee614a7eb5af3c9fde813043
+  ic fn activation get 6bf1..
   ```
 
   ```json
-  ok: got activation 6bf1f670ee614a7eb5af3c9fde813043
+  ok: got activation 6bf1..
   {
     ...
     "response": {
@@ -175,7 +176,12 @@ y:m:d:hm:s 6bf1f670...    nodejs:10 warm  2ms      success <NAMESPACE>/hello:0.0
 
 ## Takeaways
 
+- Actions can be invoked directly using CLI
+  - asynchronously: by default
+  - synchronously: --block flag
 - System tracks each invokaction as an "Activation"
+
+---
 
 # Using Action Parameters
 
@@ -183,21 +189,6 @@ Event parameters can be passed to the action when it is invoked. Let's look at a
 
 ## Passing parameters to an action
 
-1. Update the file `hello.js` with the following following content:
-
-   ```javascript
-   function main(params) {
-       return {payload:  'Hello, ' + params.name + ' from ' + params.place};
-   }
-   ```
-
-   The input parameters are passed as a JSON object parameter to the `main` function. Notice how the `name` and `place` parameters are retrieved from the `params` object in this example.
-
-2. Update the `hello` action with the new source code.
-
-   ```bash
-   ic fn action update hello hello.js
-   ```
 
 ## Invoking action with parameters
 
