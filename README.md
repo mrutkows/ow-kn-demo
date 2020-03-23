@@ -5,16 +5,12 @@
       - "no added code needed" approach
       - paramater passing
       - parameter binding
-      -
-      - CRD that acts as a basic "controller" to help with these things (i.e., simplify Kube/knative interactions from CLI)
+      - CRD that acts as a basic "controller" to simplify Kube/knative interactions from CLI)
         - Config mgmt., binding configs to params for function
-        -
-    - Key OW diff. (discuss implications later)
-      - Function signature not sumple args... assumed event always there
-        - meaning functions are bound to single event type
-        - functions are bound to any event format...
     - Fundamentally, agreed to Dr. Max's "tree" use case
       - but also said Compostions (supported by backend state) were important
+
+---
 
 ## OpenWhisk Approach
 
