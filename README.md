@@ -30,15 +30,16 @@
      - OS
      - Platform (implementation)
         - _Kube | knative | Pfirecracker, etc._
-     - Service Framework
+     - (Micro)Service Framework
 
 
-### Reactive Event driven (it's all about an eventing framework that scales as fast as possible)
+### Reactive / Event driven (it's all about an eventing framework that scales as fast as possible)
 
    - Observer pattern reflected
    - Reactive (as expected by microservices assumed to migrate over)
-      - Cold start reduction is paramount
-   - Event agnostic
+      - moving "up the stack" for the developer... no more Pflask... etc.
+      - Cold start reduction is paramount!
+   - Event format agnostic
       - Cannot force everyone to single event format; either impractical
         - performance... functions coupled with event formats (e.g., from IoT devices or data sets), e.g., (NASA PIXL, raw NoSQL data, analytics models, genetic model data)
       - Simplified HTTP / Web accessible without APIs
@@ -62,8 +63,10 @@
 ## Other features not covered:
 
 - Using Functions (and Alarms) to create Event providers / Feeds
+- Compositions
 - Binding packages (aliasing) so you can bind params
 - OpenAPI
+- YAML - deploy
 
 
 
