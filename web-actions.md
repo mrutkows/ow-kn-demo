@@ -29,7 +29,9 @@ Let's turn the `hello` action into a `"web action"`!
       ic fn action update hello --web true
       ```
 
-      The `hello` action has now been assigned an HTTP endpoint.
+{% hint style="info" %}
+_The `hello` action has now been assigned an HTTP endpoint._
+{% endhint %}
 
 2. Retrieve the web action's URL exposed by the platform for the `hello` action.
 
