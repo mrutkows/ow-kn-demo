@@ -20,46 +20,46 @@
 ## Remove APIs
 
 ```bash
-ic fn api delete myapi
+ibmcloud fn api delete myapi
 ```
 
 ## Remove Actions
 
 ```bash
-ic fn action delete hello
+ibmcloud fn action delete hello
 ```
 ```bash
-ic fn action delete proxy
+ibmcloud fn action delete proxy
 ```
 ```bash
-ic fn action delete hello-person
+ibmcloud fn action delete hello-person
 ```
 ```bash
-ic fn action delete custom/identity
+ibmcloud fn action delete custom/identity
 ```
 ```bash
-ic fn action delete atom
+ibmcloud fn action delete atom
 ```
 
 #### Sequnce Actions
 
 ```bash
-ic fn action delete reverse_words
+ibmcloud fn action delete reverse_words
 ```
 ```bash
-ic fn action delete join
+ibmcloud fn action delete join
 ```
 ```bash
-ic fn action delete reverse
+ibmcloud fn action delete reverse
 ```
 ```bash
-ic fn action delete split
+ibmcloud fn action delete split
 ```
 
 ### Remove Packages
 
 ```bash
-ic fn package delete mySamples
+ibmcloud fn package delete mySamples
 ```
 
 

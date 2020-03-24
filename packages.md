@@ -6,12 +6,12 @@ IBM Cloud Functions comes pre-installed with a number of public packages, which 
 
 Actions in public packages can be used by anyone, the caller pays the invocation cost.
 
-Using `ic fn` CLI you can get a list of packages in a namespace, list the entities in a package and get a description of the entities within a package.
+Using `ibmcloud fn` CLI you can get a list of packages in a namespace, list the entities in a package and get a description of the entities within a package.
 
 1. Get a list of packages in the `/whisk.system` namespace.
 
    ```bash
-   ic fn package list /whisk.system
+   ibmcloud fn package list /whisk.system
    ```
 
    ```text
@@ -39,7 +39,7 @@ Using `ic fn` CLI you can get a list of packages in a namespace, list the entiti
 2. Get a list of entities in the `/whisk.system/cloudant` package.
 
    ```bash
-   ic fn package get --summary /whisk.system/cloudant
+   ibmcloud fn package get --summary /whisk.system/cloudant
    ```
 
    ```bash
@@ -72,7 +72,7 @@ You can invoke actions in a package, just as with other actions. The next few st
 1. Invoke the greeting action without any parameters.
 
    ```bash
-   ic fn action invoke --result /whisk.system/samples/greeting
+   ibmcloud fn action invoke --result /whisk.system/samples/greeting
    ```
 
    ```text
@@ -84,7 +84,7 @@ You can invoke actions in a package, just as with other actions. The next few st
 3. Invoke the action with parameters.
 
    ```bash
-   ic fn action invoke --result /whisk.system/samples/greeting --param name Arya --param place Winterfell
+   ibmcloud fn action invoke --result /whisk.system/samples/greeting --param name Arya --param place Winterfell
    ```
 
    ```text
@@ -102,7 +102,7 @@ Although you can use the entities in a package directly, you might find yourself
 1. Bind to the `/whisk.system/samples` package and set a default `payload` parameter value.
 
    ```text
-   ic fn package bind /whisk.system/samples mySamples --param payload "The quick brown fox"
+   ibmcloud fn package bind /whisk.system/samples mySamples --param payload "The quick brown fox"
    ```
 
    ```text
@@ -112,7 +112,7 @@ Although you can use the entities in a package directly, you might find yourself
 2. Get a description of the package binding.
 
    ```text
-   ic fn package get --summary mySamples
+   ibmcloud fn package get --summary mySamples
    ```
 
    ```text
@@ -133,7 +133,7 @@ Although you can use the entities in a package directly, you might find yourself
 3. Invoke an action in the package binding
 
    ```text
-   ic fn action invoke --result mySamples/wordCount
+   ibmcloud fn action invoke --result mySamples/wordCount
    ```
 
    ```text
@@ -145,7 +145,7 @@ Although you can use the entities in a package directly, you might find yourself
 4. Invoke an action and overwrite the default parameter value.
 
    ```text
-   ic fn action invoke --result mySamples/wordCount --param payload "Picks up the rice in the church where a wedding has been"
+   ibmcloud fn action invoke --result mySamples/wordCount --param payload "Picks up the rice in the church where a wedding has been"
    ```
 
    ```text
@@ -161,7 +161,7 @@ Make the package public...
 1. Share the package with all users:
 
    ```bash
-   ic fn package update custom --shared yes
+   ibmcloud fn package update custom --shared yes
    ```
 
 {% hint style="info" %}

@@ -25,18 +25,18 @@ Let's now show how these web actions can be turned into an API using the [API Ga
 
 ### Hello Endpoint
 
-First we will create the `hello` endpoint. Note that all actions used in an API must be web actions, so we mustn't forget to run `ic fn action update hello --web true` prior to following commands below.
+First we will create the `hello` endpoint. Note that all actions used in an API must be web actions, so we mustn't forget to run `ibmcloud fn action update hello --web true` prior to following commands below.
 
 1. Run the following command to create a simple GET endpoint for the hello action
 
     ```bash
-    ic fn api create myapi /foo get hello
+    ibmcloud fn api create myapi /foo get hello
     ```
 
 2. Check to see the API was created
 
     ```bash
-    ic fn api list
+    ibmcloud fn api list
     ```
 
     ```bash
@@ -60,7 +60,7 @@ First we will create the `hello` endpoint. Note that all actions used in an API 
 5. Create the endpoint for the atom svg action
 
     ```bash
-    ic fn api create myapi /atom get atom --response-type http
+    ibmcloud fn api create myapi /atom get atom --response-type http
     ```
 
     ```bash

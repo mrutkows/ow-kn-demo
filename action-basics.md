@@ -34,13 +34,13 @@
 2. Create an action from the following JavaScript function. For this example, the action is called `hello`.
 
    ```bash
-   ic fn action create hello hello.js
+   ibmcloud fn action create hello hello.js
    ```
 
 3. List the actions that you have created:
 
    ```bash
-   ic fn action list
+   ibmcloud fn action list
    ```
 
    ```text
@@ -77,7 +77,7 @@ A blocking invocation request will _wait_ for the activation result to be availa
 1. Invoke the `hello` action using the command-line as a blocking activation.
 
   ```bash
-  ic fn action invoke --blocking hello
+  ibmcloud fn action invoke --blocking hello
   ```
 
   ```bash
@@ -112,7 +112,7 @@ If you don't need the action result right away, you can omit the `--blocking` fl
 1. Invoke the `hello` Action using the command-line as a non-blocking activation.
 
    ```bash
-   ic fn action invoke hello
+   ibmcloud fn action invoke hello
    ```
 
    ```bash
@@ -122,7 +122,7 @@ If you don't need the action result right away, you can omit the `--blocking` fl
 2. Retrieve the activation result
 
    ```bash
-   ic fn activation result 6bf1...
+   ibmcloud fn activation result 6bf1...
    ```
 
    ```json
@@ -134,7 +134,7 @@ If you don't need the action result right away, you can omit the `--blocking` fl
 3. Alternatively, retrieve the `--last` or `-l` activation result
 
   ```bash
-  ic fn activation result --last
+  ibmcloud fn activation result --last
   ```
 
   ```json
@@ -146,7 +146,7 @@ If you don't need the action result right away, you can omit the `--blocking` fl
 4. Retrieve the full activation record
 
   ```bash
-  ic fn activation get 6bf1..
+  ibmcloud fn activation get 6bf1..
   ```
 
   ```json
@@ -168,7 +168,7 @@ If you don't need the action result right away, you can omit the `--blocking` fl
 5. Retrieve activation list
 
 ```bash
-ic fn activation list -l 2
+ibmcloud fn activation list -l 2
 ```
 
 ```bash
@@ -196,13 +196,13 @@ Event parameters can be passed to the action when it is invoked. Let's look at a
 1. Invoke the `hello` action using explicit command-line parameters using the `--param` flag.
 
     ```bash
-    ic fn action invoke --result hello --param name Elrond --param place Rivendell
+    ibmcloud fn action invoke --result hello --param name Elrond --param place Rivendell
     ```
 
     or using the `-p` short form:
 
     ```bash
-    ic fn action invoke --result hello -p name Elrond -p place Rivendell
+    ibmcloud fn action invoke --result hello -p name Elrond -p place Rivendell
     ```
 
     ```json
@@ -229,7 +229,7 @@ Event parameters can be passed to the action when it is invoked. Let's look at a
 3. Invoke the `hello` action using parameters from a JSON file.
 
     ```bash
-    ic fn action invoke --result hello --param-file parameters.json -p name Bilbo
+    ibmcloud fn action invoke --result hello --param-file parameters.json -p name Bilbo
     ```
 
     ```json
@@ -251,7 +251,7 @@ Let's use the `hello` action from our previous example and bind a default value 
 Update the action by using the `--param` option to bind default parameter values.
 
 ```bash
-ic fn action update hello --param place Rivendell
+ibmcloud fn action update hello --param place Rivendell
 ```
 
 ### From parameter file using `--param-file`
@@ -267,13 +267,13 @@ Passing parameters from a file requires the creation of a file containing the de
 ```
 
 ```bash
-ic fn action update hello --param-file parameters2.json
+ibmcloud fn action update hello --param-file parameters2.json
 ```
 
 Invoke the action, passing only the `name` parameter this time.
 
 ```bash
-ic fn action invoke --result hello --param name Elrond
+ibmcloud fn action invoke --result hello --param name Elrond
 ```
 
 ```json
@@ -293,7 +293,7 @@ Bound parameters can still be overwritten by specifying the parameter value at i
 Invoke the action, passing both `name` and `place` values. The latter overwrites the value that is bound to the action.
 
 ```bash
-ic fn action invoke --result hello --param name Elrond --param place "the Lonely Mountain"
+ibmcloud fn action invoke --result hello --param name Elrond --param place "the Lonely Mountain"
 ```
 
 ```json
@@ -326,13 +326,13 @@ Let's look an example of creating a "proxy" action which invokes another action 
     ```
 
     ```bash
-    ic fn action create proxy proxy.js
+    ibmcloud fn action create proxy proxy.js
     ```
 
 2. Invoke the proxy with an incorrect password.
 
     ```bash
-    ic fn action invoke proxy -p password wrong -r
+    ibmcloud fn action invoke proxy -p password wrong -r
     ```
 
     ```json
@@ -348,7 +348,7 @@ Let's look an example of creating a "proxy" action which invokes another action 
 3. Invoke the proxy with the correct password.
 
     ```bash
-    ic fn action invoke proxy -p password secret -p name Bernie -p place Vermont -r
+    ibmcloud fn action invoke proxy -p password secret -p name Bernie -p place Vermont -r
     ```
 
     ```json
@@ -360,7 +360,7 @@ Let's look an example of creating a "proxy" action which invokes another action 
 4. Review the activations list to show both actions were invoked.
 
    ```bash
-   ic fn activation list -l 2
+   ibmcloud fn activation list -l 2
    ```
 
     ```text

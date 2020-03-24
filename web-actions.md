@@ -26,7 +26,7 @@ Let's turn the `hello` action into a `"web action"`!
 &#49;&#46; Update the action to set the `--web` flag to `true`.
 
       ```bash
-      ic fn action update hello --web true
+      ibmcloud fn action update hello --web true
       ```
 
 {% hint style="info" %}
@@ -36,7 +36,7 @@ _The `hello` action has now been assigned an HTTP endpoint._
 &#50;&#46; Retrieve the web action's URL exposed by the platform for the `hello` action.
 
       ```bash
-      ic fn action get hello --url
+      ibmcloud fn action get hello --url
       ```
 
       ```bash
@@ -121,13 +121,13 @@ The platform supports the following content-types: `.json`, `.html`, `.http`, `.
       ```
 
       ```bash
-      ic fn action create atom atom.js --web true
+      ibmcloud fn action create atom atom.js --web true
       ```
 
 2. Get the URL for the new atom web action
 
       ```bash
-      ic fn action get atom --url
+      ibmcloud fn action get atom --url
       ```
 
       ```bash
