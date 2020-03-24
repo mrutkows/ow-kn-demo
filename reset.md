@@ -31,6 +31,9 @@ ic fn action delete hello-person
 ```bash
 ic fn action delete custom/identity
 ```
+```bash
+ic fn action delete atom
+```
 
 ### Remove Packages
 
