@@ -167,7 +167,7 @@ If you don't need the action result right away, you can omit the `--blocking` fl
 5. Retrieve activation list
 
 ```bash
-ic fn activation list --l 2
+ic fn activation list -l 2
 ```
 
 ```bash
