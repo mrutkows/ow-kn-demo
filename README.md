@@ -84,7 +84,7 @@ It's all about an eventing framework that scales as fast as possible!
 
 ## Serverless Patterns
 
-# Unpredictable, sporadic (even aperiodic embarrassingly parallel workloads)
+### Unpredictable, sporadic (even aperiodic embarrassingly parallel workloads)
 
 ![Patterns](images/serverless-usage-graph-pattern.png)
 
