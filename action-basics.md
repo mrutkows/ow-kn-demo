@@ -187,11 +187,11 @@ y:m:d:hm:s 6bf1f670...    nodejs:10 warm  2ms      success <NAMESPACE>/hello:0.0
 
 ---
 
-# Passing Action Parameters
+## Passing Action Parameters
 
 Event parameters can be passed to the action when it is invoked. Let's look at a sample action which uses the parameters to calculate the return values.
 
-## From command line using the `--param` flag
+### From command line using the `--param` flag
 
 1. Invoke the `hello` action using explicit command-line parameters using the `--param` flag.
 
@@ -215,7 +215,7 @@ Event parameters can be passed to the action when it is invoked. Let's look at a
 **Note** We used the `--result` option above. It implies a `blocking` invocation where the CLI waits for the activation to complete and then displays only the function's output as the `payload` value.
 {% endhint %}
 
-## From parameter file using the `--param-file` flag
+### From parameter file using the `--param-file` flag
 
 2. Create a file named `parameters.json` containing the following JSON.
 
@@ -242,7 +242,7 @@ Event parameters can be passed to the action when it is invoked. Let's look at a
 
 ## "Binding" parameter defaults to Action
 
-Rather than pass all the parameters to an action every time, you can bind default parameters. Default parameters are stored in the platform and automatically passed in during each invocation. If the invocation includes the same event parameter, this will overwrite the default parameter value.
+Rather than pass all the parameters to an action every time, you can bind default parameters. Default parameters are stored in the platform and automatically passed in during each invocation.
 
 Let's use the `hello` action from our previous example and bind a default value for the `place` parameter.
 
@@ -282,7 +282,9 @@ ic fn action invoke --result hello --param name Elrond
 }
 ```
 
+{% hint style="info" %}
 Notice that you did not need to specify the place parameter when you invoked the action. Bound parameters can still be overwritten by specifying the parameter value at invocation time.
+{% endhint %}
 
 ### Command Line overrides defaults (binding values)
 
