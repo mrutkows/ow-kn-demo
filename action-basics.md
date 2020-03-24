@@ -59,6 +59,8 @@
 - **Namespaced**: (default) installed into; allows underlying platform to apply **IAM access control** to
 - _**Note**: "update" action subcommand will update internal version of source code (allowing existing actions to complete with source code version in-flight)_
 
+---
+
 ## Invoking Actions
 
 You may `invoke` your action in one of two modes:
@@ -95,14 +97,13 @@ A blocking invocation request will _wait_ for the activation result to be availa
     ...
   ```
 
-  #### Notes
+  ### Notes
 
   - The wait period is the lesser of 60 seconds or the action's configured [time limit](https://github.com/apache/incubator-openwhisk/blob/master/docs/reference.md#per-action-timeout-ms-default-60s).
 
   - The **Activation ID** can always be used later to lookup the response.
 
-
-### Non-blocking invocations
+## Non-blocking invocations (Async)
 
 A non-blocking invocation will invoke the action immediately, but _not wait_ for a response.
 
@@ -176,7 +177,7 @@ y:m:d:hm:s 44794bd6...    nodejs:10 cold  34s      success <NAMESPACE>/hello:0.0
 y:m:d:hm:s 6bf1f670...    nodejs:10 warm  2ms      success <NAMESPACE>/hello:0.0.1
 ```
 
-## Takeaways
+### Takeaways
 
 - Actions can be invoked directly using CLI
   - asynchronously: by default
