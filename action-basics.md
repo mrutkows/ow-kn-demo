@@ -370,5 +370,5 @@ Let's look an example of creating a "proxy" action which invokes another action 
   - Actions call other actions
 
 {% hint style="tip" %}
-**Note** On the invoke call above, we used the short form for the `--last` flag which is `-l` with a parameter to only `list` the last `2` activations.
+**Note** On the invoke call above, we used the short form for the `-l` with a parameter to only `list` the `last 2` activations.
 {% endhint %}
