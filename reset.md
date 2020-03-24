@@ -43,7 +43,9 @@ ic package delete mySamples
 
 ## Remove APIs
 
-TBD
+```bash
+ic fn api delete myapi
+```
 
 ## Remove Triggers
 

@@ -30,7 +30,7 @@ First we will create the `hello` endpoint. Note that all actions used in an API 
 1. Run the following command to create a simple GET endpoint for the hello action
 
     ```bash
-    ic fn api create /myapi /foo get hello
+    ic fn api create myapi /foo get hello
     ```
 
 2. Check to see the API was created
@@ -42,7 +42,7 @@ First we will create the `hello` endpoint. Note that all actions used in an API 
     ```bash
     ok: APIs
     Action                                     Verb  API Name  URL
-    /NAMESPACE/hello        get    /myapi  https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/d9903f40439f1a268b7dcbac42a389cdde605f3f3bef57f69789be6df438361e/myapi/hello
+    /NAMESPACE/hello        get    myapi  https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/d9903f40439f1a268b7dcbac42a389cdde605f3f3bef57f69789be6df438361e/myapi/hello
     ```
 
 3. Now lets invoke that API via curl
@@ -60,7 +60,7 @@ First we will create the `hello` endpoint. Note that all actions used in an API 
 5. Create the endpoint for the atom svg action
 
     ```bash
-    ic fn api create /myapi /atom get atom --response-type http
+    ic fn api create myapi /atom get atom --response-type http
     ```
 
     ```bash
