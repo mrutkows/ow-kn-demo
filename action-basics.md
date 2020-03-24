@@ -258,7 +258,7 @@ ic fn action update hello --param place Rivendell
 
 Passing parameters from a file requires the creation of a file containing the desired content in JSON format. The filename must then be passed to the `--param-file` flag:
 
-### xample parameter file called _parameters2.json_:
+### Example: parameter file `"parameters2.json`:
 
 ```json
 {
