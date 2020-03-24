@@ -82,9 +82,7 @@ It's all about an eventing framework that scales as fast as possible!
 
 ---
 
-## Serverless Patterns
-
-### Ideal Pattern - Unpredictable, sporadic
+## Serverless Patterns - Unpredictable, sporadic
 
 - _Even aperiodic embarrassingly parallel workloads_
 
