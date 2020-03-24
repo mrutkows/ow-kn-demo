@@ -20,18 +20,20 @@
 # OpenWhisk - Knative Functions WG demo
 
 
-## Last week's demo (Lionel)
+## Credit Last Week’s Demo (Lionel)
 
-- Lionel did a great job showing some of the basic concepts using Kube/Knative providing basic OW features and runtime proxy approach
-   - Invisible proxy (Docker layer) in runtime to simplify/normalize functonality to functions
-      - Mostly **platform agnostic** no added code needed" approach
-      - **paramater passing**
-      - **parameter binding**
-    - **CRD** that acts as a _basic "controller"_ to simplify Kube/knative interactions from CLI)
-      - _Config mgmt., binding configs to params for function_
-      - _Launch knative services "ksvc"_
-    - **Compositions** (supported by backend state) were important
-      - Fundamentally, agreed to Dr. Max's "tree/branching" use case, but more
+- Moving some OpenWhisk’s basic concepts using Kube/Knative providing
+- **“Runtime proxy” approach**
+    - _**Invisible proxy**_ (Docker layer) in runtime to simplify/normalize functionality to functions
+    - Mostly _**platform agnostic**_ no added code needed" approach
+    - _**Parameter passing**_, _**Parameter binding**_
+- **CRD** - that acts as a _basic "controller"_
+    - Simplifies Kube/Knative interactions (from CLI)
+    - Config mgmt. - binding configs to params for function
+    - Launch Knative Services "ksvc” - for named functions
+- **Compositions**
+    - _Supported by backend (state) were important_
+    - _Fundamentally, agreed with "tree/branching" use case (Max), but more…_
 
 ---
 
