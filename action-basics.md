@@ -367,6 +367,10 @@ Let's look an example of creating a "proxy" action which invokes another action 
     e0c603c242c646978603c242c6c6977f nodejs:10 cold  438ms      success proxy:0.0.1
     ```
 
+{% hint style="tip" %}
+**Note** On the invoke call above, we used the short form for the `-l` with a parameter to only `list` the `last 2` activations.
+{% endhint %}
+
 {% hint style="info" %}
 **Note** The `Start` values for each indicate if each Action was "cold" (slower, function reloaded) or "warm" (already loaded) started.
 {% endhint %}
@@ -378,6 +382,3 @@ Let's look an example of creating a "proxy" action which invokes another action 
     - [NPM Apache OpenWhisk](https://www.npmjs.com/package/openwhisk) JavaScript library
   - Actions call other actions
 
-{% hint style="info" %}
-**Note** On the invoke call above, we used the short form for the `-l` with a parameter to only `list` the `last 2` activations.
-{% endhint %}
