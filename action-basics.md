@@ -191,7 +191,7 @@ y:m:d:hm:s 6bf1f670...    nodejs:10 warm  2ms      success <NAMESPACE>/hello:0.0
 
 Event parameters can be passed to the action when it is invoked. Let's look at a sample action which uses the parameters to calculate the return values.
 
-## CLI --param flag
+## From command line using the `--param` flag
 
 1. Invoke the `hello` action using explicit command-line parameters using the `--param` flag.
 
@@ -215,7 +215,7 @@ Event parameters can be passed to the action when it is invoked. Let's look at a
 **Note** We used the `--result` option above. It implies a `blocking` invocation where the CLI waits for the activation to complete and then displays only the function's output as the `payload` value.
 {% endhint %}
 
-## CLI --param-file flag
+## From parameter file using the `--param-file` flag
 
 2. Create a file named `parameters.json` containing the following JSON.
 
