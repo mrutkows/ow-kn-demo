@@ -367,6 +367,10 @@ Let's look an example of creating a "proxy" action which invokes another action 
     e0c603c242c646978603c242c6c6977f nodejs:10 cold  438ms      success proxy:0.0.1
     ```
 
+{% hint style="info" %}
+**Note** The `Start` values for each indicate if each Action was "cold" (slower, function reloaded) or "warm" (already loaded) started.
+{% endhint %}
+
 ### Takeaways
 
 - Platform functions simplified:
