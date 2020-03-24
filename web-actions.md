@@ -49,15 +49,10 @@ Let's turn the `hello` action into a `"web action"`!
       curl "https://us-south.functions.cloud.ibm.com/api/v1/web/2ca6a304-a717-4486-ae33-1ba6be11a393/default/hello"
       ```
 
-{% hint style="tip" %}
-**Note** On the invoke call above, we used the short form for the `-l` with a parameter to only `list` the `last 2` activations.
-{% endhint %}
-      Remember:
-
-{% hint style="info" %}
-It looks like nothing happened!  In fact, an HTTP response code of `204 No Content` was returned...
-This is because we need to tell IBM Cloud Functions what `content-type` we expect the function to return...
-{% endhint %}
+      {% hint style="warning" %}
+      It looks like nothing happened!  In fact, an HTTP response code of `204 No Content` was returned...
+      This is because we need to tell IBM Cloud Functions what `content-type` we expect the function to return...
+      {% endhint %}
 
 4. Invoke the web action URL with a JSON extension using the `curl` command.
 
