@@ -369,6 +369,6 @@ Let's look an example of creating a "proxy" action which invokes another action 
     - [NPM Apache OpenWhisk](https://www.npmjs.com/package/openwhisk) JavaScript library
   - Actions call other actions
 
-{% hint style="tip" %}
+{% hint style="info" %}
 **Note** On the invoke call above, we used the short form for the `-l` with a parameter to only `list` the `last 2` activations.
 {% endhint %}

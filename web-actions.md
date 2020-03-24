@@ -140,9 +140,4 @@ The platform supports the following content-types: `.json`, `.html`, `.http`, `.
 
 3. Copy and paste that URL into your browser to see the image!
 
-      <!--
-      #######################################################
-      TODO: Figure out how to add width="20%" to SVG images.
-      #######################################################
-      -->
       ![atom.svg](atom.svg)
