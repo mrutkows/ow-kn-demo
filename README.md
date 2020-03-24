@@ -86,11 +86,11 @@ It's all about an eventing framework that scales as fast as possible!
 
 # Unpredictable, sporadic (even aperiodic embarrassingly parallel workloads)
 
-![Patterns](serverless-usage-graph-pattern.png)
+![Patterns](images/serverless-usage-graph-pattern.png)
 
 ### Anti-pattern - High volume, continuous requests
 
-![Anti-patterns](serverless-usage-graph-antopattern.png)
+![Anti-patterns](images/serverless-usage-graph-antopattern.png)
 
 ### Key Use Cases
 
