@@ -19,7 +19,7 @@
 
 # Web Actions
 
-Web actions are actions which can be called externally using the HTTP protocol from clients like `curl` or web browsers.  IBM Cloud Functions provides a simple flag, `--web <boolean>`, which will cause it to automatically create an HTTP accessible URL (endpoint) for any action.
+Web actions are actions which can be called externally using the HTTP protocol from clients like `curl` or web browsers.  IBM Cloud Functions provides a simple flag, `--web`, which will cause it to automatically create an HTTP accessible URL (endpoint) for any action.
 
 Let's turn the `hello` action into a `"web action"`!
 
