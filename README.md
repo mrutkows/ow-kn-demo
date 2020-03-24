@@ -41,16 +41,16 @@
 
 ### Developer-centric
 
-- Everything we do is for **Developer simplicity**
+- _**Everything we do is for **Developer simplicity**_
 
-  - Developer only codes functions in their chosen language
+  - _Developer only codes functions in their chosen language_
      - _No directives | pragmas | annotations_
      - Utilize normal language module/package imports
         - May provide platform callbacks/intrinsic functionality (as functions)
-  - Developer has NO knowledge of
-     - Operating Syetem (OS)
+  - _Developer has NO knowledge of_
+     - Operating Sye\stem (OS)
      - Platform (implementation)
-        - _Kube | knative | Pfirecracker, etc._
+        - _Kube | Knative | Firecracker, etc._
      - Container (VM tech.)
      - (Micro)Service Framework
 
