@@ -103,38 +103,38 @@ Although you can use the entities in a package directly, you might find yourself
 1. Bind to the `/whisk.system/samples` package and set a default `payload` parameter value.
 
    ```text
-   ic fn package bind /whisk.system/samples valhallaSamples --param payload "The quick brown fox"
+   ic fn package bind /whisk.system/samples mySamples --param payload "The quick brown fox"
    ```
 
    ```text
-   ok: created binding valhallaSamples
+   ok: created binding mySamples
    ```
 
 2. Get a description of the package binding.
 
    ```text
-   ic fn package get --summary valhallaSamples
+   ic fn package get --summary mySamples
    ```
 
    ```text
-   package /namespace/valhallaSamples: Returns a result based on parameter place
+   package /namespace/mySamples: Returns a result based on parameter place
       (parameters: *place)
-    action /namespace/valhallaSamples/helloWorld: Demonstrates logging facilities
+    action /namespace/mySamples/helloWorld: Demonstrates logging facilities
        (parameters: payload)
-    action /namespace/valhallaSamples/greeting: Returns a friendly greeting
+    action /namespace/mySamples/greeting: Returns a friendly greeting
        (parameters: name, place)
-    action /namespace/valhallaSamples/curl: Curl a host url
+    action /namespace/mySamples/curl: Curl a host url
        (parameters: payload)
-    action /namespace/valhallaSamples/wordCount: Count words in a string
+    action /namespace/mySamples/wordCount: Count words in a string
        (parameters: payload)
    ```
 
-   Notice that all the actions in the `/whisk.system/samples` package are available in the `valhallaSamples` package binding.
+   Notice that all the actions in the `/whisk.system/samples` package are available in the `mySamples` package binding.
 
 3. Invoke an action in the package binding
 
    ```text
-   ic fn action invoke --result valhallaSamples/wordCount
+   ic fn action invoke --result mySamples/wordCount
    ```
 
    ```text
@@ -146,7 +146,7 @@ Although you can use the entities in a package directly, you might find yourself
 4. Invoke an action and overwrite the default parameter value.
 
    ```text
-   ic fn action invoke --result valhallaSamples/wordCount --param payload "Picks up the rice in the church where a wedding has been"
+   ic fn action invoke --result mySamples/wordCount --param payload "Picks up the rice in the church where a wedding has been"
    ```
 
    ```text
