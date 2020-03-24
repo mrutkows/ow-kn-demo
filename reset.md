@@ -41,6 +41,8 @@ ic fn action delete custom/identity
 ic fn action delete atom
 ```
 
+#### Sequnce Actions
+
 ```bash
 ic fn action delete reverse_words
 ```
@@ -57,7 +59,7 @@ ic fn action delete split
 ### Remove Packages
 
 ```bash
-ic package delete mySamples
+ic fn package delete mySamples
 ```
 
 
