@@ -238,9 +238,9 @@ Event parameters can be passed to the action when it is invoked. Let's look at a
     }
     ```
 
-## "Binding" parameter defaults to Action
+---
 
-Actions can be invoked with multiple named parameters. Recall that the `hello` action from the previous example expects two parameters: the _name_ of a person, and the _place_ where they're from.
+## "Binding" parameter defaults to Action
 
 Rather than pass all the parameters to an action every time, you can bind default parameters. Default parameters are stored in the platform and automatically passed in during each invocation. If the invocation includes the same event parameter, this will overwrite the default parameter value.
 
@@ -254,17 +254,17 @@ Update the action by using the `--param` option to bind default parameter values
 ic fn action update hello --param place Rivendell
 ```
 
+### From parameter file
+
 Passing parameters from a file requires the creation of a file containing the desired content in JSON format. The filename must then be passed to the `--param-file` flag:
 
-Example parameter file called parameters2.json:
+### xample parameter file called _parameters2.json_:
 
 ```json
 {
     "place": "Rivendell"
 }
 ```
-
-### From parameter file
 
 ```bash
 ic fn action update hello --param-file parameters2.json
@@ -283,6 +283,8 @@ ic fn action invoke --result hello --param name Elrond
 ```
 
 Notice that you did not need to specify the place parameter when you invoked the action. Bound parameters can still be overwritten by specifying the parameter value at invocation time.
+
+### Command Line overrides defaults (binding values)
 
 Invoke the action, passing both `name` and `place` values. The latter overwrites the value that is bound to the action.
 
