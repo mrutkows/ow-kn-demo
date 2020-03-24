@@ -23,7 +23,7 @@ Web actions are actions which can be called externally using the HTTP protocol f
 
 Let's turn the `hello` action into a `"web action"`!
 
-&#49; Update the action to set the `--web` flag to `true`.
+&#49;&#46; Update the action to set the `--web` flag to `true`.
 
       ```bash
       ic fn action update hello --web true
@@ -33,7 +33,7 @@ Let's turn the `hello` action into a `"web action"`!
 _The `hello` action has now been assigned an HTTP endpoint._
 {% endhint %}
 
-&#50; Retrieve the web action's URL exposed by the platform for the `hello` action.
+&#50;&#46; Retrieve the web action's URL exposed by the platform for the `hello` action.
 
       ```bash
       ic fn action get hello --url
@@ -45,7 +45,7 @@ _The `hello` action has now been assigned an HTTP endpoint._
 
       ```
 
-&#51;  Invoke the web action URL returned using the `curl` command.
+&#51;&#46;  Invoke the web action URL returned using the `curl` command.
 
       ```bash
       curl "https://us-south.functions.cloud.ibm.com/api/v1/web/2ca6a304-a717-4486-ae33-1ba6be11a393/default/hello"
@@ -56,7 +56,7 @@ _The `hello` action has now been assigned an HTTP endpoint._
 _In fact, an HTTP response code of **204 No Content** was returned. This is because we need to tell IBM Cloud Functions what **content-type** we expect the function to return._
 {% endhint %}
 
-&#52; Invoke the web action URL with a JSON extension using the `curl` command.
+&#52;&#46; Invoke the web action URL with a JSON extension using the `curl` command.
 
       To do this we need to add `.json` after the action name, at the end of the URL, to tell ICF we want a JSON object returned. Try it invoking it now:
 
@@ -64,7 +64,7 @@ _In fact, an HTTP response code of **204 No Content** was returned. This is beca
       curl "https://us-south.functions.cloud.ibm.com/api/v1/web/2ca6a304-a717-4486-ae33-1ba6be11a393/default/hello.json"
       ```
 
-      We now get a successful HTTP response in JSON format which matches the `.json` extension we added:
+      We now get a successful HTTP response in JSON format:
 
       ```json
       {
