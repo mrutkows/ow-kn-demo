@@ -146,4 +146,4 @@ The platform supports the following content-types: `.json`, `.html`, `.http`, `.
       TODO: Figure out how to add width="20%" to SVG images.
       #######################################################
       -->
-      ![atom.svg](images/atom.svg)
+      ![atom.svg](atom.svg)
