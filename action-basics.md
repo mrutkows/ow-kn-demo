@@ -214,7 +214,7 @@ Event parameters can be passed to the action when it is invoked. Let's look at a
 **Note** We used the `--result` option above. It implies a `blocking` invocation where the CLI waits for the activation to complete and then displays only the function's output as the `payload` value.
 {% endhint %}
 
-## CLI --param
+## CLI --param-file flag
 
 2. Create a file named `parameters.json` containing the following JSON.
 
