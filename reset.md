@@ -17,6 +17,12 @@
 #
 -->
 
+## Remove APIs
+
+```bash
+ic fn api delete myapi
+```
+
 ## Remove Actions
 
 ```bash
@@ -41,13 +47,5 @@ ic fn action delete atom
 ic package delete mySamples
 ```
 
-## Remove APIs
 
-```bash
-ic fn api delete myapi
-```
-
-## Remove Triggers
-
-TBD
 
