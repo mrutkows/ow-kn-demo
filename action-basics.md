@@ -237,39 +237,7 @@ Event parameters can be passed to the action when it is invoked. Let's look at a
     }
     ```
 
-### Nested parameters
-
-Parameter values can be any valid JSON value, including nested objects. Let's update our action to use child properties of the event parameters.
-
-1. Create the `hello-person` action with the following source code.
-
-    ```javascript
-    function main(params) {
-        return {payload:  'Hello, ' + params.person.name + ' from ' + params.person.place};
-    }
-    ```
-
-    ```bash
-    ic fn action create hello-person hello-person.js
-    ```
-
-    Now the action expects a single `person` parameter to have fields `name` and `place`.
-
-2. Invoke the action with a single `person` parameter that is valid JSON.
-
-   ```bash
-   ic fn action invoke --result hello-person -p person '{"name": "Elrond", "place": "Rivendell"}'
-   ```
-
-   The result is the same because the CLI automatically parses the `person` parameter value into the structured object that the action now expects:
-
-   ```json
-   {
-       "payload": "Hello, Elrond from Rivendell"
-   }
-   ```
-
-## Setting default parameters
+## "Binding" parameter defaults to Action
 
 Actions can be invoked with multiple named parameters. Recall that the `hello` action from the previous example expects two parameters: the _name_ of a person, and the _place_ where they're from.
 
@@ -287,7 +255,7 @@ ic fn action update hello --param place Rivendell
 
 Passing parameters from a file requires the creation of a file containing the desired content in JSON format. The filename must then be passed to the `--param-file` flag:
 
-Example parameter file called parameters.json:
+Example parameter file called parameters2.json:
 
 ```json
 {
@@ -298,7 +266,7 @@ Example parameter file called parameters.json:
 ### From parameter file
 
 ```bash
-ic fn action update hello --param-file parameters.json
+ic fn action update hello --param-file parameters2.json
 ```
 
 Invoke the action, passing only the `name` parameter this time.
@@ -327,7 +295,11 @@ ic fn action invoke --result hello --param name Elrond --param place "the Lonely
 }
 ```
 
-## Proxy example
+---
+
+## Actions calling other Actions
+
+### Proxy example
 
 Let's look an example of creating a "proxy" action which invokes another action _(i.e, our `hello` action)_ if a "password" is present in the input parameters.
 
@@ -395,8 +367,8 @@ Let's look an example of creating a "proxy" action which invokes another action 
 - Platform functions simplified:
   - Simple import of NPM package (NodeJS developer familiar)
     - [NPM Apache OpenWhisk](https://www.npmjs.com/package/openwhisk) JavaScript library
+  - Actions call other actions
 
 {% hint style="tip" %}
 **Note** On the invoke call above, we used the short form for the `--last` flag which is `-l` with a parameter to only `list` the last `2` activations.
 {% endhint %}
-
