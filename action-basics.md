@@ -282,8 +282,10 @@ ic fn action invoke --result hello --param name Elrond
 }
 ```
 
+- _Notice that you did not need to specify the place parameter when you invoked the action._
+
 {% hint style="info" %}
-Notice that you did not need to specify the place parameter when you invoked the action. Bound parameters can still be overwritten by specifying the parameter value at invocation time.
+Bound parameters can still be overwritten by specifying the parameter value at invocation time.
 {% endhint %}
 
 ### Command Line overrides defaults (binding values)
@@ -368,7 +370,7 @@ Let's look an example of creating a "proxy" action which invokes another action 
     ```
 
 {% hint style="tip" %}
-**Note** On the invoke call above, we used the short form for the `-l` with a parameter to only `list` the `last 2` activations.
+**Tip** On the invoke call above, we used the short form for the `-l` with a parameter to only `list` the `last 2` activations.
 {% endhint %}
 
 {% hint style="info" %}
