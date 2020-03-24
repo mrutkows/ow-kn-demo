@@ -41,6 +41,19 @@ ic fn action delete custom/identity
 ic fn action delete atom
 ```
 
+```bash
+ic fn action delete reverse_words
+```
+```bash
+ic fn action delete join
+```
+```bash
+ic fn action delete reverse
+```
+```bash
+ic fn action delete split
+```
+
 ### Remove Packages
 
 ```bash
