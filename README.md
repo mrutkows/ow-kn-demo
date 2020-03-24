@@ -43,16 +43,17 @@
 
 - _**Everything we do is for **Developer simplicity**_
 
-  - _Developer only codes functions in their chosen language_
+  - _**Developer only codes functions in their chosen language**_
      - _No directives | pragmas | annotations_
      - Utilize normal language module/package imports
         - May provide platform callbacks/intrinsic functionality (as functions)
-  - _Developer has NO knowledge of_
-     - Operating Sye\stem (OS)
+  - _**Developer has NO knowledge of**_
+     - Operating System (OS)
      - Platform (implementation)
         - _Kube | Knative | Firecracker, etc._
      - Container (VM tech.)
      - (Micro)Service Framework
+  - _Minimalistic archive “zip” packaging from CLI
 
 ### Observer Pattern: Event driven / Reactive
 
@@ -79,18 +80,42 @@ It's all about an eventing framework that scales as fast as possible!
 
    - Informed by experience of OW and production usage for ~4 years
 
-### Key Use Cases and Takeaways
+### Key Use Cases
 
-   - Alarm | bartch
-   - ETL
-   - API
-        - OpenAPI, Security, Rate limiting pushed to edge,
-        - easily interfaced with host IAM systems
-   - Massively parallel (time/cost of additive cold start compute times considerations)
+Reflect the top reasons Developers move "up-the-stack"
 
-## Features covered in this material:
+- Minimize compute costs (smallest possible per-invocation charge)
+  - Manage unpredictability, sporadic loads (events sporadic)
+  - Horizontal Scaling to N (up to account limits), to 0
 
-- Using Functions (and Alarms) to create Event providers / Feeds
+#### Alarm | Periodic
+
+  - "batch jobs"
+
+  ![Serverless APIs](images/serverless-use-case-periodic.png)
+
+#### ETL Pipelines
+
+  - Changes in Data-at-Rest, Data-in-Motion "trigger" functions
+
+  ![ETL Pipelines](images/serverless-use-case-etl-pipeline.png)
+
+#### Serverless APIs
+
+  - OpenAPI, Security, Rate limiting pushed to edge,
+  - Easily interfaced with host IAM systems
+
+  ![Serverless APIs](images/serverless-use-case-apis.png)
+
+#### Embarrassingly parallel workloads
+
+  - Time/Cost of additive cold start compute times considerations
+
+  ![Embarrassingly parallel workloads](images/serverless-use-case-divide-conquer.png)
+
+## Features NOT covered in today that impact Developer Usability
+
+- Using Functions (and Alarms) to create Event providers / Feeds (coupled with Alarms)
 - Observer pattern
   - N Triggers -> 1 Action
   - 1 Trigger -> N Actions
