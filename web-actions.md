@@ -51,10 +51,10 @@ Let's turn the `hello` action into a `"web action"`!
 
       Remember:
 
-      {% hint style="info" %}
-      It looks like nothing happened!  In fact, an HTTP response code of `204 No Content` was returned...
-      This is because we need to tell IBM Cloud Functions what `content-type` we expect the function to return...
-      {% endhint %}
+{% hint style="info" %}
+It looks like nothing happened!  In fact, an HTTP response code of `204 No Content` was returned...
+This is because we need to tell IBM Cloud Functions what `content-type` we expect the function to return...
+{% endhint %}
 
 4. Invoke the web action URL with a JSON extension using the `curl` command.
 
