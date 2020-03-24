@@ -246,7 +246,7 @@ Rather than pass all the parameters to an action every time, you can bind defaul
 
 Let's use the `hello` action from our previous example and bind a default value for the `place` parameter.
 
-### From command line
+### From command line using `--param`
 
 Update the action by using the `--param` option to bind default parameter values.
 
@@ -254,11 +254,11 @@ Update the action by using the `--param` option to bind default parameter values
 ic fn action update hello --param place Rivendell
 ```
 
-### From parameter file
+### From parameter file using `--param-file`
 
 Passing parameters from a file requires the creation of a file containing the desired content in JSON format. The filename must then be passed to the `--param-file` flag:
 
-### Example: parameter file `"parameters2.json`:
+### Example: parameter file `parameters2.json`:
 
 ```json
 {
