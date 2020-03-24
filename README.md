@@ -90,7 +90,7 @@ It's all about an eventing framework that scales as fast as possible!
 
 ### Anti-pattern - High volume, continuous requests
 
-![Anti-patterns](images/serverless-usage-graph-antopattern.png)
+![Anti-patterns](images/serverless-usage-graph-antipattern.png)
 
 ### Key Use Cases
 
