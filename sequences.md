@@ -249,7 +249,3 @@ Let's look at how this work...
 {% hint style="info" %}
 The use of **Sequences is an "advanced" technique** that can bring Serverless applications to life, but even more-advanced Compositions are possible using Conditional logic constructs that are not covered in this introductory course.
 {% endhint %}
-
-{% hint style="success" %}
-🎉 **Congratulations for completing the last topic under Creating and Invoking Actions!** In the next section, we will explore how we might manage groups of "like"  Actions using **Packages** further enabling composition and reuse...
-{% endhint %}
