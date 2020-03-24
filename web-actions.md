@@ -48,12 +48,11 @@ Let's turn the `hello` action into a `"web action"`!
       ```bash
       curl "https://us-south.functions.cloud.ibm.com/api/v1/web/2ca6a304-a717-4486-ae33-1ba6be11a393/default/hello"
       ```
-      <!-- {% hint style="warning" %} -->
+
+      {% hint style="warning" %}
       **It looks like nothing happened!**
-
-      - In fact, an HTTP response code of `204 No Content` was returned. This is because we need to tell IBM Cloud Functions what `content type` we expect the function to return.
-      <!-- {% endhint %} -->
-
+      - _In fact, an HTTP response code of **204 No Content** was returned. This is because we need to tell IBM Cloud Functions what **content-type** we expect the function to return._
+      {% endhint %}
 
 4. Invoke the web action URL with a JSON extension using the `curl` command.
 
@@ -121,10 +120,6 @@ The platform supports the following content-types: `.json`, `.html`, `.http`, `.
 
       ```bash
       ic fn action create atom atom.js --web true
-      ```
-
-      ```bash
-      ok: updated action atom
       ```
 
 2. Get the URL for the new atom web action
