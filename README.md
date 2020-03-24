@@ -80,6 +80,18 @@ It's all about an eventing framework that scales as fast as possible!
 
    - Informed by experience of OW and production usage for ~4 years
 
+---
+
+## Serverless Patterns
+
+# Unpredictable, sporadic (even aperiodic embarrassingly parallel workloads)
+
+![Patterns](serverless-usage-graph-pattern.png)
+
+### Anti-pattern - High volume, continuous requests
+
+![Anti-patterns](serverless-usage-graph-antopattern.png)
+
 ### Key Use Cases
 
 Reflect the top reasons Developers move "up-the-stack"
@@ -139,6 +151,3 @@ Reflect the top reasons Developers move "up-the-stack"
   - for general case (FaaS)
   - Custom schedulers (for dedicated use cases)
   - Heterogeneous clusters (Compute CPU/Mem)
-
-
-
