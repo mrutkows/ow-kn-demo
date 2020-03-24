@@ -89,9 +89,7 @@ Web actions invoked through the platform API need a content extension to tell th
 The platform supports the following content-types: `.json`, `.html`, `.http`, `.svg` or `.text`. If no content extension is provided, it defaults to `.http` which gives the action full control of the HTTP response.
 {% endhint %}
 
-
-
-## Example: SVG Response
+### Example: SVG Response
 
 1. Create a new function that has the SVG base64 encoded as the body
 

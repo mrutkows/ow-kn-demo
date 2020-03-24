@@ -5,6 +5,6 @@
 * [Packages](packages.md)
   * [Custom packages](packages/custom.md)
 * [Web Actions](web-actions.md)
-  * [Controlling HTTP Actions](web-actions-http.md)
+  * [Controlling HTTP Actions](actions/web-actions-http.md)
 * [APIs](api.md)
 * [Reset](reset.md)
