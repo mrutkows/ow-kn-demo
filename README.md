@@ -19,7 +19,6 @@
 
 # OpenWhisk - Knative Functions WG demo
 
-
 ## Credit Last Week’s Demo (Lionel)
 
 - Moving some OpenWhisk’s basic concepts using Kube/Knative providing
@@ -127,27 +126,31 @@ Reflect the top reasons Developers move "up-the-stack"
 
 ## Features NOT covered in today that impact Developer Usability
 
-- Using Functions (and Alarms) to create Event providers / Feeds (coupled with Alarms)
-- Observer pattern
-  - N Triggers -> 1 Action
-  - 1 Trigger -> N Actions
-- Binding packages (aliasing) so you can bind params
-- OpenAPI spec. "Swagger" support
-  - Rate Limiting
-- YAML - deploy
-- Binding your own "secure key" token without OpenAPI spec.
+- Observer pattern (Triggers and Rules)
+  - _N Triggers -> 1 Action, 1 Trigger -> N Actions_
+- Feed Actions (with Packages)
+  - _Using Functions to create Event providers / Feeds_
+  - _Alarms, GitHub, NoSQL (Cloudant)_
+- APIs – OpenAPI “Swagger” support
+  - _Rate Limiting, OAuth, Custom domain names, HTTP Methods_
+  - _Binding your own "secure key" token without OpenAPI_
+- YAML – deploy  ‘fn deploy’
+  - _Packages, Actions, Triggers, Rules, APIs, Parameters (Bindings), Annotations, Client-Server “sync”, +++_
 - Compositions
-  - Composer / Conductor (Lionel developer)
+  - _Composer / Conductor (Lionel developer)_
 - Logging / Metrics
-  - built-in via File Descriptors in Proxy
-- Debugging (server side, client side)
-  - Proxy
-- Docker actions (any binary)
+  - _built-in via File Descriptors in “Go” Proxy_
+- Debugging Support
+  - _server side, client side (CLI)_
+- Docker actions (any binary executable)
+  - _Docker SDK_
 - Tekton build for OW runtimes
-- "Kind' Routing
-  - OW using Knative,
-  - V8 Isolates, Firecracker (concurrency), e.g., 10K NodeJS invocations in one Container
-- Scheduling (pluggable),
-  - for general case (FaaS)
-  - Custom schedulers (for dedicated use cases)
-  - Heterogeneous clusters (Compute CPU/Mem)
+  - _Builds for OpenWhisk or Knative_
+- Execution Domain Router _("Kind' Routing)_
+  - _OW using Knative, V8 Isolates, Firecracker (runtime concurrency)_
+  - _Target: 10K NodeJS invocations in 1 runtime Container_
+- Scheduling (pluggable)
+  - _General scheduler (default) for all FaaS use cases_
+  - _Custom schedulers (for dedicated use cases)_
+- Heterogeneous clusters
+  - _Pools with diff. Compute CPU/Mem _
