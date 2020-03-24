@@ -81,5 +81,5 @@ All HTTP Methods are supported... `GET`, `POST`, `PUT`, or `DELETE`. For details
 As we can begin to tell, as the number of API endpoints increases, documenting and managing them becomes increasingly difficult. One solution to this to use the [OpenAPI Specification](https://swagger.io/specification/). This has a plethora of tools around for documenting, creating stub projects, etc in a variety of languages. And it is supported by IBM Cloud Functions!
 
 {% hint style="info" %}
-You may pass in OpenAPI JSOM documents on API create...
+You may create all your APIs with a single OpenAPI JSON documents on the `create` command...
 {% endhint %}
