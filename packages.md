@@ -32,10 +32,9 @@ Using `ic fn` CLI you can get a list of packages in a namespace, list the entiti
    /whisk.system/weather                     shared
    /whisk.system/websocket                   shared
    ```
-{% hint style="info" %}
-**Some _Packages_ have _Actions_ that are also _Feeds_**, that is they implement the Feed interface and know how to manage (connect) to external services that are event sources.
-{% endhint %}
-
+   {% hint style="info" %}
+   **Some _Packages_ have _Actions_ that are also _Feeds_**, that is they implement the Feed interface and know how to manage (connect) to external services that are event sources.
+   {% endhint %}
 
 2. Get a list of entities in the `/whisk.system/cloudant` package.
 

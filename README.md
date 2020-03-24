@@ -120,7 +120,7 @@ Reflect the top reasons Developers move "up-the-stack"
   - N Triggers -> 1 Action
   - 1 Trigger -> N Actions
 - Binding packages (aliasing) so you can bind params
-- OpenAPI
+- OpenAPI spec. "Swagger" support
   - Rate Limiting
 - YAML - deploy
 - Binding your own "secure key" token without OpenAPI spec.
@@ -134,7 +134,7 @@ Reflect the top reasons Developers move "up-the-stack"
 - Tekton build for OW runtimes
 - "Kind' Routing
   - OW using Knative,
-  - V8 Isolages, Firecracker (concurrency), 10K NodeJS invocations in one Container
+  - V8 Isolates, Firecracker (concurrency), e.g., 10K NodeJS invocations in one Container
 - Scheduling (pluggable),
   - for general case (FaaS)
   - Custom schedulers (for dedicated use cases)

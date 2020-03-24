@@ -17,12 +17,6 @@
 #
 -->
 
-## Remove APIs
-
-
-## Remove Triggers
-
-
 ## Remove Actions
 
 ```bash
@@ -34,3 +28,21 @@ ic fn action delete proxy
 ```bash
 ic fn action delete hello-person
 ```
+```bash
+ic fn action delete custom/identity
+```
+
+### Remove Packages
+
+```bash
+ic package delete mySamples
+```
+
+## Remove APIs
+
+TBD
+
+## Remove Triggers
+
+TBD
+
