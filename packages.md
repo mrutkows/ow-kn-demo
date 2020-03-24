@@ -33,7 +33,7 @@ Using `ic fn` CLI you can get a list of packages in a namespace, list the entiti
    /whisk.system/websocket                   shared
    ```
 {% hint style="info" %}
-Some have Actions that are also Feeds, that is they implement the Feed interface and know how to manage (connect) to external services that are event sources.
+**Some _Packages_ have _Actions_ that are also _Feeds_**, that is they implement the Feed interface and know how to manage (connect) to external services that are event sources.
 {% endhint %}
 
 
