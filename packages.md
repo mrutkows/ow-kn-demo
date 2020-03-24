@@ -6,12 +6,12 @@ IBM Cloud Functions comes pre-installed with a number of public packages, which 
 
 Actions in public packages can be used by anyone, the caller pays the invocation cost.
 
-Using `ibmcloud fn` CLI you can get a list of packages in a namespace, list the entities in a package and get a description of the entities within a package.
+Using `ic fn` CLI you can get a list of packages in a namespace, list the entities in a package and get a description of the entities within a package.
 
 1. Get a list of packages in the `/whisk.system` namespace.
 
    ```bash
-   ibmcloud fn package list /whisk.system
+   ic fn package list /whisk.system
    ```
 
    ```text
@@ -36,7 +36,7 @@ Using `ibmcloud fn` CLI you can get a list of packages in a namespace, list the 
 2. Get a list of entities in the `/whisk.system/cloudant` package.
 
    ```bash
-   ibmcloud fn package get --summary /whisk.system/cloudant
+   ic fn package get --summary /whisk.system/cloudant
    ```
 
    ```bash
@@ -62,46 +62,15 @@ Using `ibmcloud fn` CLI you can get a list of packages in a namespace, list the 
 * Furthermore, any parameters with the prefix `'**'` are **finalized bound parameters**. This means that they are immutable, and cannot be changed by the user.
 {% endhint %}
 
-## Viewing parameters
-
-Any entity listed under a package inherits specific bound parameters from the package. To view the list of known parameters of an entity belonging to a package, you will need to run a `get --summary` of the individual entity.
-
-Let's look more closely at the `read` action in the Cloudant package:
-
-1. Get a description of the `/whisk.system/cloudant/read` action.
-
-   ```bash
-   ibmcloud fn action get --summary /whisk.system/cloudant/read
-   ```
-
-   ```text
-   action /whisk.system/cloudant/read: Read document from database
-      (parameters: *apihost, *bluemixServiceName, *dbname, *host, *id, params, *password, *username)
-   ```
-
-   This output shows that the Cloudant `read` action lists eight parameters, seven of which are predefined. These include the database and document ID (`id`) to retrieve.
 
 ## Invoking actions in a package
 
 You can invoke actions in a package, just as with other actions. The next few steps show how to invoke the `greeting` action in the `/whisk.system/samples` package with different parameters.
 
-1. Get a description of the `/whisk.system/samples/greeting` action.
+1. Invoke the greeting action without any parameters.
 
    ```bash
-   ibmcloud fn action get --summary /whisk.system/samples/greeting
-   ```
-
-   ```text
-   action /whisk.system/samples/greeting: Returns a friendly greeting
-      (parameters: name, place)
-   ```
-
-   Notice that the `greeting` action takes two parameters: `name` and `place`.
-
-2. Invoke the action without any parameters.
-
-   ```bash
-   ibmcloud fn action invoke --result /whisk.system/samples/greeting
+   ic fn action invoke --result /whisk.system/samples/greeting
    ```
 
    ```text
@@ -115,7 +84,7 @@ You can invoke actions in a package, just as with other actions. The next few st
 3. Invoke the action with parameters.
 
    ```bash
-   ibmcloud fn action invoke --result /whisk.system/samples/greeting --param name Arya --param place Winterfell
+   ic fn action invoke --result /whisk.system/samples/greeting --param name Arya --param place Winterfell
    ```
 
    ```text
@@ -137,7 +106,7 @@ In the following simple example, you bind to the `/whisk.system/samples` package
 1. Bind to the `/whisk.system/samples` package and set a default `place` parameter value.
 
    ```text
-   ibmcloud fn package bind /whisk.system/samples valhallaSamples --param place Valhalla
+   ic fn package bind /whisk.system/samples valhallaSamples --param place Valhalla
    ```
 
    ```text
@@ -147,7 +116,7 @@ In the following simple example, you bind to the `/whisk.system/samples` package
 2. Get a description of the package binding.
 
    ```text
-   ibmcloud fn package get --summary valhallaSamples
+   ic fn package get --summary valhallaSamples
    ```
 
    ```text
@@ -168,7 +137,7 @@ In the following simple example, you bind to the `/whisk.system/samples` package
 3. Invoke an action in the package binding
 
    ```text
-   ibmcloud fn action invoke --result valhallaSamples/greeting --param name Odin
+   ic fn action invoke --result valhallaSamples/greeting --param name Odin
    ```
 
    ```text
@@ -182,7 +151,7 @@ In the following simple example, you bind to the `/whisk.system/samples` package
 4. Invoke an action and overwrite the default parameter value.
 
    ```text
-   ibmcloud fn action invoke --result valhallaSamples/greeting --param name Odin --param place Asgard
+   ic fn action invoke --result valhallaSamples/greeting --param name Odin --param place Asgard
    ```
 
    ```text
@@ -203,12 +172,12 @@ In the following simple example, you bind to the `/whisk.system/samples` package
 
 Custom packages can be used to group your own actions, manage default parameters and share entities with other users.
 
-Let's demonstrate how to do this now using the `ibmcloud fn` CLI tool…
+Let's demonstrate how to do this now using the `ic fn` CLI tool…
 
 1. Create a package called "custom".
 
    ```bash
-   ibmcloud fn package create custom
+   ic fn package create custom
    ```
 
    ```text
@@ -218,7 +187,7 @@ Let's demonstrate how to do this now using the `ibmcloud fn` CLI tool…
 2. Get a summary of the package.
 
    ```bash
-   ibmcloud fn package get --summary custom
+   ic fn package get --summary custom
    ```
 
    ```text
@@ -237,7 +206,7 @@ Let's demonstrate how to do this now using the `ibmcloud fn` CLI tool…
 4. Create an `identity` action in the `custom` package.
 
    ```bash
-   ibmcloud fn action create custom/identity identity.js
+   ic fn action create custom/identity identity.js
    ```
 
    ```text
@@ -249,7 +218,7 @@ Let's demonstrate how to do this now using the `ibmcloud fn` CLI tool…
 5. Get a summary of the package again.
 
    ```bash
-   ibmcloud fn package get --summary custom
+   ic fn package get --summary custom
    ```
 
    ```text
@@ -264,7 +233,7 @@ Let's demonstrate how to do this now using the `ibmcloud fn` CLI tool…
 6. Invoke the action in the package.
 
    ```bash
-   ibmcloud fn action invoke --result custom/identity
+   ic fn action invoke --result custom/identity
    ```
 
    ```text
@@ -280,7 +249,7 @@ To see how this works, try the following example:
 1. Update the `custom` package with two parameters: `city` and `country`.
 
    ```bash
-   ibmcloud fn package update custom --param city Austin --param country USA
+   ic fn package update custom --param city Austin --param country USA
    ```
 
    ```text
@@ -291,7 +260,7 @@ To see how this works, try the following example:
 
 
    ```bash
-   ibmcloud fn package get custom
+   ic fn package get custom
    ```
 
    ```json
@@ -313,7 +282,7 @@ To see how this works, try the following example:
 3. Observe how the `identity` action in the package inherits these parameters from the package.
 
    ```bash
-   ibmcloud fn action get custom/identity
+   ic fn action get custom/identity
    ```
 
    ```json
@@ -335,7 +304,7 @@ To see how this works, try the following example:
 3. Invoke the identity action without any parameters to verify that the action indeed inherits the parameters.
 
    ```bash
-   ibmcloud fn action invoke --result custom/identity
+   ic fn action invoke --result custom/identity
    ```
 
    ```json
@@ -348,7 +317,7 @@ To see how this works, try the following example:
 4. Invoke the identity action with some parameters.
 
    ```bash
-   ibmcloud fn action invoke --result custom/identity --param city Dallas --param state Texas
+   ic fn action invoke --result custom/identity --param city Dallas --param state Texas
    ```
 
    ```json
@@ -370,7 +339,7 @@ After the actions and feeds that comprise a package are debugged and tested, the
 1. Share the package with all users:
 
    ```bash
-   ibmcloud fn package update custom --shared yes
+   ic fn package update custom --shared yes
    ```
 
    ```text
@@ -380,7 +349,7 @@ After the actions and feeds that comprise a package are debugged and tested, the
 2. Display the `publish` property of the package to verify that it is now true.
 
    ```bash
-   ibmcloud fn package get custom
+   ic fn package get custom
    ```
 
    ```text
@@ -401,7 +370,7 @@ After the actions and feeds that comprise a package are debugged and tested, the
 3. Get a description of the package to show the fully qualified names of the package and action.
 
    ```bash
-   ibmcloud fn package get --summary custom
+   ic fn package get --summary custom
    ```
 
    ```text

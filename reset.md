@@ -29,5 +29,8 @@
 ic fn action delete hello
 ```
 ```bash
+ic fn action delete proxy
+```
+```bash
 ic fn action delete hello-person
 ```
