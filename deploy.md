@@ -20,7 +20,7 @@
 ## Example: Packages with NodeJS and Python (with params, sequences)
 
 ```bash
-ibmcloud fn deploy -m manifest-example1.yaml
+ibmcloud fn deploy -m manifest-example-bookclub.yaml
 ```
 
 ```yaml
@@ -104,7 +104,7 @@ packages:
 ## Example: "Book Club" APIs
 
 ```bash
-ibmcloud fn deploy -m manifest-exanple2.yaml
+ibmcloud fn deploy -m manifest-example-apis.yaml
 ```
 
 where `manifest.yaml` has contents:
