@@ -31,25 +31,23 @@
 
     _The JavaScript file might contain additional functions. However, by convention, a function called `main` is the default entry point for the action._
 
-
 2. Create an action from the following JavaScript function. For this example, the action is called `hello`.
 
-   ```bash
-   ibmcloud fn action create hello hello.js
-   ```
+    ```bash
+    ibmcloud fn action create hello hello.js
+    ```
 
 3. List the actions that you have created:
 
-   ```bash
-   ibmcloud fn action list
-   ```
+    ```bash
+    ibmcloud fn action list
+    ```
+    ```text
+    actions
+    <NAMESPACE>/hello       private    nodejs10
+    ```
 
-   ```text
-   actions
-   <NAMESPACE>/hello       private    nodejs10
-   ```
-
-   You can see the `hello` action you just created under your default NAMESPACE with implied access control provided by the platform.
+    You can see the `hello` action you just created under your default NAMESPACE with implied access control provided by the platform.
 
 ### Takeaways
 
