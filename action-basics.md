@@ -30,7 +30,7 @@
     ```
 
 {% hint style="info" %}
-The JavaScript file might contain additional functions. However, by convention, a function called main is the default entry point for the action.
+_The JavaScript file might contain additional functions. However, by convention, a function called `main` is the default entry point for the action._
 {% endhint %}
 
 2. Create an action from the following JavaScript function. For this example, the action is called `hello`.
