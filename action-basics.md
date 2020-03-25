@@ -54,9 +54,9 @@
 
 - **No special code** needed, just the language
   - **Convention**: "Main" entrypoint _assumed (can alias "main" to any function)_
-- **No build step**
-- **NodeJS inferred** (latest runtime version)
-- **Namespaced**: (default) installed into; allows underlying platform to apply **IAM access control** to
+- **No build step**: Runtimes for all supported languages already resident in "invoker" clusters for immediate function "injection".
+- **NodeJS inferred** (latest runtime version); can explicitly set with `--kind` flag
+- **Namespaced**: (default) installed into; allows underlying platform to apply **IAM access control** to any entity (Package, Action, Trigger, etc.)
 - _**Note**: _"update" action subcommand will update internal version of source code (allowing existing actions to complete with source code version in-flight)_
 
 ---
