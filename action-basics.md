@@ -30,7 +30,7 @@
     ```
 
     * _The JavaScript file might contain additional functions. However, by convention, a function called `main` is the default entry point for the action._
-    <!-- space -->
+    *
 2. Create an action from the 'hello.js' JavaScript function naming it `hello`:
 
     ```bash
