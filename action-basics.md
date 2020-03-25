@@ -181,7 +181,7 @@ y:m:d:hm:s 6bf1f670...    nodejs:10 warm  2ms      success <NAMESPACE>/hello:0.0
 
 - Actions can be invoked directly using CLI
   - asynchronously: by default
-  - synchronously: --block flag
+  - synchronously: `--block` flag
 - System tracks each action invocation with as an "Activation" (record)
   - _Lots of information about execution time/params, etc._
 
@@ -377,10 +377,11 @@ Let's look an example of creating a "proxy" action which invokes another action 
 **Note** The `Start` values for each indicate if each Action was "cold" (slower, function reloaded) or "warm" (already loaded) started.
 {% endhint %}
 
+{% hint style="info" %}
 ### Takeaways
 
 - Platform functions simplified:
   - Simple import of NPM package (NodeJS developer familiar)
     - [NPM Apache OpenWhisk](https://www.npmjs.com/package/openwhisk) JavaScript library
   - Actions call other actions
-
+{% endhint %}
