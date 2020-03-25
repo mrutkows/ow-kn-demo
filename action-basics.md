@@ -52,7 +52,7 @@
 
 ### Takeaways
 
-- **No special code** needed, just the language
+- **No special code** needed, developer just the codes their favorite language
   - **Convention**: "Main" entrypoint _assumed (can alias "main" to any function)_
 - **No build step**: Runtimes for all supported languages already resident in "invoker" clusters for immediate function "injection".
 - **NodeJS inferred** (latest runtime version); can explicitly set with `--kind` flag
